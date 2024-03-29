@@ -2,28 +2,36 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@layer components {
+  .all-\[unset\] {
+    all: unset;
   }
 }
 
+:root {
+  --background: #563729;
+  --tile: #FBF5DA;
+  --tileShadow: #F9D695;
+  --tileBlue: #2B4BA8;
+  --tileRed: #C63B39;
+  --tileYellow: #FFC700;
+  --tileGreen: #1FB248;
+  --tilePurple: #801FA3;
+  --button-label-font-size: 16px;
+  --button-label-font-style: normal;
+  --heavy-font-weight: 700;
+  --light-font-weight: 400;
+  --button-label-letter-spacing: 0.8px;
+  --button-label-line-height: 20px;
+  --default-line-height: 10px;
+  --letter-font-size: 37px;
+  --letter-name-font-size: 12px;
+  --pronunciation-font-size: 10px;
+  --tile-label-font-size: 7.5px;
+}
+
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background: var(--background)
 }
 
 @layer utilities {

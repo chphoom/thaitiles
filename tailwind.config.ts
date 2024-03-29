@@ -8,11 +8,20 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      colors: {
+        "background": "var(--background)",
+        "tile": "var(--tile)",
+        "tileShadow": "var(--tileShadow)",
+        "tileBlue": "var(--tileBlue)",
+        "tileRed": "var(--tileRed)",
+        "tileYellow": "var(--tileYellow)",
+        "tileGreen": "var(--tileGreen)",
+        "tilePurple": "var(--tilePurple)",
       },
+      fontFamily: {
+        defaultFont: "var(--font-inter)",
+        decorFont: "var(--font-itim)"
+      }
     },
   },
   plugins: [],
