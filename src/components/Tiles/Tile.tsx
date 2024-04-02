@@ -1,4 +1,4 @@
-import { colorCode, consonant, isConsonant, vowel } from "@/app/utilities/alphabet";
+import { colorCode, consonant, isConsonant, vowel } from "@/utilities/alphabet";
 import React from "react";
 import { ConsonantTile } from "./ConsonantTile";
 import { VowelTile } from "./VowelTile";

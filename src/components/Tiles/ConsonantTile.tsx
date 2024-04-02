@@ -1,4 +1,4 @@
-import { colorCode, consonant } from "@/app/utilities/alphabet";
+import { colorCode, consonant } from "@/utilities/alphabet";
 import React from "react";
 
 interface Props {
