@@ -481,3 +481,10 @@ export function colorCode(content: consonant | vowel, border: boolean): string |
     
     return ""; // Default return statement
 }
+
+import { shuffle } from '@deepakvishwakarma/ts-util';
+
+export function generateDeck(): (consonant|vowel)[] {
+    let deck = [...consonants, ...vowels];
+    return shuffle(deck);    
+}
