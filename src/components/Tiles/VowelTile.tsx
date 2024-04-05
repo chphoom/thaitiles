@@ -7,7 +7,7 @@ interface Props {
 
 export const VowelTile = ({ value }: Props): JSX.Element => {
     return (
-        <div className="absolute grid place-items-center grid-cols-1 gap-3 top-[10px] left-[18px] z-10">
+        <div className="absolute grid place-items-center grid-cols-1 gap-3 top-[10px] z-10">
             <div className="relative font-decorFont font-[number:var(--light-font-weight)] text-black text-[length:var(--letter-font-size)] leading-[var(--default-line-height)]">
                 <br />
                 {value.letter}
