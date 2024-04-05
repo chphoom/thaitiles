@@ -44,7 +44,17 @@ export default function Home() {
                 {`REMAINING TILES: ${deck.length}`}
               </div>
               <div className='border-2 w-[180px] h-[180px]'>
-                
+                <Draggable
+                  id="helo"
+                  styles={{
+                    position: "absolute",
+                    left: `${x}px`,
+                    top: `${y}px`
+                  }}
+                >
+                  <Tile
+                    content={deck[0]} />
+                </Draggable>
               </div>
             </div>
             {/* buttons */}
