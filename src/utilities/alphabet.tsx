@@ -483,7 +483,7 @@ export function isWide(letter: Letter): boolean {
 
 import { shuffle } from '@deepakvishwakarma/ts-util';
 
-export function generateDeck(): (consonant|vowel)[] {
+export function generateDeck(): Letter[] {
     let deck = [...letters];
     return shuffle(deck);    
 }
