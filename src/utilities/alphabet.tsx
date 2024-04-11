@@ -480,3 +480,10 @@ export function isWide(letter: Letter): boolean {
     const newArray = indexes.map(index => letters[index].letter);
     return newArray.includes(letter.letter);
 }//end isWide
+
+import { shuffle } from '@deepakvishwakarma/ts-util';
+
+export function generateDeck(): Letter[] {
+    let deck = [...letters];
+    return shuffle(deck);    
+}

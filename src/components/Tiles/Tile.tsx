@@ -29,7 +29,11 @@ export const Tile = ({ className, content }: Props): React.JSX.Element => {
         {content.letter}
       </div>
       {isConsonant(content) ? name() : null}
-      <div className="relative hyphens-none font-decorFont font-[number:var(--light-font-weight)] text-black text-[length:var(--pronunciation-font-size)] leading-[var(--default-line-height)]">
+      <div
+        style={{
+          minWidth: '45px',
+        }}
+        className="relative hyphens-none font-decorFont font-[number:var(--light-font-weight)] text-black text-[length:var(--pronunciation-font-size)] leading-[var(--default-line-height)]">
         {content.pronounciation.replace(/-/g, '‑')}
       </div>
       <div
