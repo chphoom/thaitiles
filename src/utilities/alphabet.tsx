@@ -449,7 +449,7 @@ export function isConsonant(letter: Letter): boolean {
 }//end isConsonant
 
 export function colorCode(letter: Letter, options: "border" | "background" | "hex") {
-    switch(letter.category) {
+    switch (letter.category) {
         case tones.mid:
             return options === "border" ? "border-tileBlue" : options === "background" ? "bg-tileBlue" : "#2b4ba8";
         case tones.low:
@@ -462,3 +462,21 @@ export function colorCode(letter: Letter, options: "border" | "background" | "he
             return options === "border" ? "border-tilePurple" : options === "background" ? "bg-tilePurple" : "#801fa3";
     }
 }//end colorCode
+
+export function isAboveLine(letter: Letter): boolean {
+    const indexes = [26,28,30,46, 47, 48, 49, 56, 57, 61, 62, 64, 65, 66, 67, 72, 73, 74];
+    const newArray = indexes.map(index => letters[index].letter);
+    return newArray.includes(letter.letter);
+}//end isAboveLine
+
+export function isBelowLine(letter: Letter): boolean {
+    const indexes = [12,13,14,15,50,51,68,69,70,71];
+    const newArray = indexes.map(index => letters[index].letter);
+    return newArray.includes(letter.letter);
+}//end isBelowLine
+
+export function isWide(letter: Letter): boolean {
+    const indexes = [60, 61, 62, 64, 65, 66];
+    const newArray = indexes.map(index => letters[index].letter);
+    return newArray.includes(letter.letter);
+}//end isWide

@@ -43,7 +43,7 @@ export default function Home() {
               }}
               >
               <Tile 
-              content={letters[50]}/>
+              content={letters[0]}/>
             </Draggable>
             {/* <Button label="test" selected={selected} onClick={() => {
               setSelected(!selected);
