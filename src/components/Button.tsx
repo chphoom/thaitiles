@@ -19,12 +19,10 @@ export const Button = ({ className, label, selected, onClick }: Props): React.JS
       onClick={onClick}
     >
       <div className={`flex items-center justify-center min-w-[150px] rounded-[16px] pt-[13.8px] pb-[15.8px] px-[25px] border-2 border-solid border-tileShadow ${style}`}>
-        {/* <div className="inline-flex flex-col items-center justify-center relative"> */}
           <div className="relative w-fit mt-[-1.00px] font-defaultFont font-[number:var(--heavy-font-weight)] text-background text-[length:var(--button-label-font-size)] text-center tracking-[var(--button-label-letter-spacing)] leading-[var(--button-label-line-height)] whitespace-nowrap [font-style:var(--button-label-font-style)]">
             {label}
           </div>
         </div>
-      {/* </div> */}
     </button>
   );
 };
