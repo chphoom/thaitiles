@@ -29,11 +29,7 @@ export default function Home() {
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <div className="z-10 w-full items-center lg:flex">
         <DndContext
-          // onDragStart={({ active }) => {
-          //   setCount(parentIds.filter((id) => id === 'spawnzone').length);
-          // }}
           onDragEnd={({ over, active, delta }) => {
-            console.log('active:', active, 'currentTile:', currentTile);
             setPositions((prevPositions) => {
               const newPositions = [...prevPositions];
               newPositions[active.id as number] = {
@@ -93,7 +89,13 @@ export default function Home() {
                 <Button label='HARD' selected={difficulty === 3} onClick={() => setDifficulty(3)} />
               </div>
               <div>
-                <Button label='SHUFFLE' onClick={() => setDeck(generateDeck)} />
+                <Button label='SHUFFLE' onClick={() => {
+                  setDeck(generateDeck)
+                  setPositions(deck.map(() => ({ x: 150, y: 150 })))
+                  setCount(deck.length)
+                  setParentIds(deck.map(() => 'spawnzone'))
+                  setCurrentTile(75)
+                  }} />
               </div>
             </div>
           </div>
