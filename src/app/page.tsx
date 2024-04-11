@@ -6,8 +6,8 @@ import { restrictToWindowEdges } from '@dnd-kit/modifiers';
 import { useState } from 'react';
 import type { Coordinates } from '@dnd-kit/utilities';
 import { Droppable } from '@/components/Droppable';
-import { consonants, vowels } from '../utilities/alphabet';
 import { Button } from '@/components/Button';
+import { letters } from '@/utilities/alphabet';
 
 // this only works for one draggable, will have to refactor to work with multiple -- maybe with a map function and id prop
 const defaultCoordinates = {
@@ -18,7 +18,7 @@ const defaultCoordinates = {
 export default function Home() {
   const [{x, y}, setCoordinates] = useState<Coordinates>(defaultCoordinates);
   // will have to use states for each button to keep track of which one is selected, as well as enable whatever is not selected
-  const [selected, setSelected] = useState(false);
+  // const [selected, setSelected] = useState(false);
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
@@ -34,7 +34,7 @@ export default function Home() {
           }}
           modifiers={[restrictToWindowEdges]}
         >
-            {/* <Draggable
+            <Draggable
               id="helo"
               styles={{
                 position: "absolute",
@@ -43,12 +43,12 @@ export default function Home() {
               }}
               >
               <Tile 
-              content={consonants[0]}/>
-            </Draggable> */}
-            <Button label="test" selected={selected} onClick={() => {
+              content={letters[50]}/>
+            </Draggable>
+            {/* <Button label="test" selected={selected} onClick={() => {
               setSelected(!selected);
               // console.log(selected);
-            }}/>
+            }}/> */}
         </DndContext>
       </div>
     </main>

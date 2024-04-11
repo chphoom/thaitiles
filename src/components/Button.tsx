@@ -7,7 +7,7 @@ interface Props {
   onClick?: () => void;
 }
 
-export const Button = ({ className, label, selected, onClick }: Props): JSX.Element => {
+export const Button = ({ className, label, selected, onClick }: Props): React.JSX.Element => {
   const style = selected ? "translate-y-1 translate-x-1 box-shadow:0_0px_0_0_#f9d695 border-[0px]" : "border-2 border-solid border-tileShadow active:translate-y-1 active:translate-x-1 active:[box-shadow:0_0px_0_0_#f9d695] active:border-[0px] transition-all duration-150 [box-shadow:2px_2px_0_0_#f9d695]";
   return (
     <button
