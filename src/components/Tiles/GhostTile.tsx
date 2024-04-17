@@ -7,7 +7,7 @@ interface Props {
 export const GhostTile = ({ className }: Props): React.JSX.Element => {
   return (
     <div
-      className={`inline-flex flex-col items-center px-[19px] py-[11px] w-[74px] h-[109px] relative bg-tile rounded-[13px] gap-2 grayscale opacity-50 shadow-ghostTile ${className}`}>
+      className={`inline-flex flex-col items-center px-5 py-2.5 w-18.5 h-28 relative bg-tile rounded-xl gap-2 grayscale opacity-50 shadow-ghostTile ${className}`}>
     </div>
   );
 };

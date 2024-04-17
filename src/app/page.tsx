@@ -8,6 +8,7 @@ import type { Coordinates } from '@dnd-kit/utilities';
 import { Droppable } from '@/components/Droppable';
 import { generateDeck } from '../utilities/alphabet';
 import { Button } from '@/components/Button';
+import { GhostTile } from '@/components/Tiles/GhostTile';
 
 // this only works for one draggable, will have to refactor to work with multiple -- maybe with a map function and id prop
 const defaultCoordinates = {
@@ -55,10 +56,10 @@ export default function Home() {
             {/* spawnzone */}
             <Droppable id="spawnzone">
               <div className='w-fit flex-col justify-center'>
-                <div className="relative w-fit mt-[-1.00px] font-defaultFont font-[number:var(--heavy-font-weight)] text-tile text-[length:var(--button-label-font-size)] text-center tracking-[var(--button-label-letter-spacing)] leading-[var(--button-label-line-height)] whitespace-nowrap [font-style:var(--button-label-font-style)]">
+                <div className="relative w-fit -mt-px font-inter font-bold text-tile text-base text-center tracking-wider whitespace-nowrap not-italic">
                   {`REMAINING TILES: ${count}`}
                 </div>
-                <div className='border-2 w-[180px] h-[180px]'>
+                <div className='border-2 w-44 h-44'>
                   {deck.map((tile, index) => (
                     <Draggable
                       key={index}
