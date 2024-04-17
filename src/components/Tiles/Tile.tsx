@@ -19,12 +19,14 @@ export const Tile = ({ className, content }: Props): React.JSX.Element => {
       className={`inline-flex flex-col items-center px-5 py-2.5 w-18.5 relative bg-tile rounded-xl ${className}`}>
       <div
         style={{
-          gap: `${isConsonant(content) ? "8px" : "15px"}`
+          gap: `${isConsonant(content) ? "8px" : "15px"}`,
+          marginTop: `${isConsonant(content) ? "0px" : "4px"}`,
+          marginBottom: `${isConsonant(content) ? "0px" : "4px"}`,
         }}
         className="inline-flex flex-col items-center relative -ml-1">
         <div
           style={{
-            marginTop: `${isAboveLine(content) ? isConsonant(content) ? "4px" : "8px" : isBelowLine(content) ? "-4px" : null}`,
+            marginTop: `${isAboveLine(content) ? isConsonant(content) ? "4px" : "8px" : isBelowLine(content) ? "-4px" : isWide(content) ? "4px" : null}`,
             marginBottom: `${isAboveLine(content) ? "-3px" : isBelowLine(content) ? isConsonant(content) ? "3px" : "8px" : null}`,
             fontSize: `${isWide(content) ? "var(--letter-small-font-size)" : "var(--letter-font-size)"}`,
           }}
