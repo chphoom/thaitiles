@@ -9,6 +9,7 @@ import { Droppable } from '@/components/Droppable';
 import { generateDeck } from '../utilities/alphabet';
 import { Button } from '@/components/Button';
 import { GhostTile } from '@/components/Tiles/GhostTile';
+import { Board } from '@/components/Board/Board';
 
 // this only works for one draggable, will have to refactor to work with multiple -- maybe with a map function and id prop
 const defaultCoordinates = {
@@ -28,7 +29,7 @@ export default function Home() {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full items-center lg:flex">
+      <div className="w-full items-center">
         <DndContext
           onDragEnd={({ over, active, delta }) => {
             setPositions((prevPositions) => {
@@ -100,6 +101,11 @@ export default function Home() {
               </div>
             </div>
           </div>
+          <br />
+          <br />
+          <br />
+          {/* board */}
+          <Board layout={mode} start={0} end={75} />
         </DndContext>
       </div>
     </main>
