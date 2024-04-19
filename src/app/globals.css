@@ -17,19 +17,8 @@
   --tileYellow: #FFC700;
   --tileGreen: #1FB248;
   --tilePurple: #801FA3;
-  --button-label-font-size: 16px;
-  --button-label-font-style: normal;
-  --heavy-font-weight: 700;
-  --light-font-weight: 400;
-  --button-label-letter-spacing: 0.8px;
-  --button-label-line-height: 20px;
-  --default-line-height: 10px;
-  --large-line-height: 20px;
   --letter-font-size: 37px;
   --letter-small-font-size: 28px;
-  --letter-name-font-size: 12px;
-  --pronunciation-font-size: 10px;
-  --tile-label-font-size: 7.5px;
 }
 
 body {

@@ -19,8 +19,18 @@ const config: Config = {
         "tilePurple": "var(--tilePurple)",
       },
       fontFamily: {
-        defaultFont: "var(--font-inter)",
-        decorFont: "var(--font-itim)"
+        inter: "var(--font-inter)",
+        itim: "var(--font-itim)"
+      },
+      boxShadow: {
+        ghostTile: '5px 0px 0px var(--tileBlue), inset -6px 0px 0px #f9d695',
+      },
+      fontSize: {
+        '2xs': ['0.625rem', '0.875rem'],
+        '3xs': ['0.469rem', '0.75rem'],
+      },
+      width: {
+        '18.5': '4.625rem',
       }
     },
   },
