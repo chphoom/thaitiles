@@ -1,22 +1,37 @@
-import { letters } from "@/utilities/alphabet";
-import React from "react";
+import { Letter, letters } from "@/utilities/alphabet";
+import React, { useEffect, useState } from "react";
 import { Droppable } from "../Droppable";
 import { GhostTile } from "../Tiles/GhostTile";
+import { Tile } from "../Tiles/Tile";
 
 interface Props {
     className?: any;
     layout: number; // see parent, currently 1 = grid, 2 = row, 3 = ???
     start: number; // starting index, defaults to 0
     end: number; // ending index, defaults to 75
+    tiles: JSX.Element[]; // array of tiles
+    parentIds: string[]; // array of parentIds
 }
-
-export const Board = ({ className, layout = 1, start = 0, end = 75 }: Props): React.JSX.Element => {
+// deck, parentIds 
+export const Board = ({ className, layout = 1, start = 0, end = 75, tiles, parentIds}: Props): React.JSX.Element => {
     if (layout === 1) {
         start = 0;
         end = 75;
     }//end validaion check
 
     const elements = letters.slice(start, end + 1)
+    const [items, setItems] = useState<(JSX.Element | undefined)[]>([]);
+
+    useEffect(() => {
+        const updatedDeck = tiles.map((element, index) => {
+            if (parentIds[index] !== 'spawnzone' && parentIds[index] !== 'undefined') {
+                return element;
+            } else {
+                return undefined;
+            }
+        });
+        setItems(updatedDeck);
+    }, [tiles, parentIds]);
 
     if (layout === 1) {
         return (
@@ -29,7 +44,7 @@ export const Board = ({ className, layout = 1, start = 0, end = 75 }: Props): Re
                     }
                     return (
                         <Droppable id={letter.letter} key={index} styles={style}>
-                            <GhostTile />
+                            {items[parentIds.findIndex(id => id === letter.letter)] ? items[parentIds.findIndex(id => id === letter.letter)] : <GhostTile />}
                         </Droppable>
                     );
                 })}
