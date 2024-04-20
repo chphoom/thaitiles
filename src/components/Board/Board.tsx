@@ -39,7 +39,7 @@ export const Board = ({ className, layout = 1, start = 0, end = 75, tiles, paren
                 className={`grid grid-cols-12 gap-4 min-w-[1090px] max-w-[1400px] ${className}`}>
                 {elements.map((letter, index) => {
                     let style = {};
-                    if (index === 44) {
+                    if (index === 44 || index === 44+8 || index === 44+8+8 || index === 44+8+8+8) { //creates vowel rows of 8
                         style = { gridColumnStart: 1 };
                     }
                     return (

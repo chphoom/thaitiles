@@ -362,6 +362,16 @@ export const letters: Letter[] = [
         category: isShort(false)
     },
     {
+        letter: "-ัวะ",
+        pronounciation: "Ua",
+        category: isShort(true)
+    },
+    {
+        letter: "-ัว",
+        pronounciation: "Ua",
+        category: isShort(false)
+    },
+    {
         letter: "เ-ียะ",
         pronounciation: "Ia",
         category: isShort(true)
@@ -369,16 +379,6 @@ export const letters: Letter[] = [
     {
         letter: "เ-ีย",
         pronounciation: "Ia",
-        category: isShort(false)
-    },
-    {
-        letter: "เ-อะ",
-        pronounciation: "Er",
-        category: isShort(true)
-    },
-    {
-        letter: "เ-อ",
-        pronounciation: "Er",
         category: isShort(false)
     },
     {
@@ -392,33 +392,13 @@ export const letters: Letter[] = [
         category: isShort(false)
     },
     {
-        letter: "-ัวะ",
-        pronounciation: "Ua",
+        letter: "เ-อะ",
+        pronounciation: "Er",
         category: isShort(true)
     },
     {
-        letter: "-ัว",
-        pronounciation: "Ua",
-        category: isShort(false)
-    },
-    {
-        letter: "ฤ",
-        pronounciation: "Rue",
-        category: isShort(true)
-    },
-    {
-        letter: "ฤๅ",
-        pronounciation: "Rue",
-        category: isShort(false)
-    },
-    {
-        letter: "ฦ",
-        pronounciation: "Lue",
-        category: isShort(true)
-    },
-    {
-        letter: "ฦๅ",
-        pronounciation: "Lue",
+        letter: "เ-อ",
+        pronounciation: "Er",
         category: isShort(false)
     },
     {
@@ -440,7 +420,27 @@ export const letters: Letter[] = [
         letter: "เ-า",
         pronounciation: "Ao",
         category: isShort(true)
-    }
+    },
+    {
+        letter: "ฤ",
+        pronounciation: "Rue",
+        category: isShort(true)
+    },
+    {
+        letter: "ฤๅ",
+        pronounciation: "Rue",
+        category: isShort(false)
+    },
+    {
+        letter: "ฦ",
+        pronounciation: "Lue",
+        category: isShort(true)
+    },
+    {
+        letter: "ฦๅ",
+        pronounciation: "Lue",
+        category: isShort(false)
+    },
 ].map(letter => ({ ...letter, name: letter.name }));
 // ].map(letter => ({ ...letter, name: letter.name ? letter.name : undefined}));
 
