@@ -10,6 +10,8 @@ import { generateDeck } from '../utilities/alphabet';
 import { Button } from '@/components/Button';
 import { GhostTile } from '@/components/Tiles/GhostTile';
 import { Board } from '@/components/Board/Board';
+import { shuffle } from '@deepakvishwakarma/ts-util';
+
 
 export default function Home() {
   const [mode, setMode] = useState(1); // 1 = grid, 2 = row, 3 = ???
@@ -57,6 +59,42 @@ export default function Home() {
     setCurrentTile(75)
   }//end handleReset
 
+  const handleMode = () => {
+    let output = "";
+    mode == 1 ? output += 1 : output += 2;
+    difficulty == 1 ? output += 1 : difficulty == 2 ? output += 2 : output += 3;
+    return output;
+  }//end handleMode NOTE: atp this function should only output 11, 12, 13, 21, 22, 23
+
+  const handleClear = () => {
+    setParentIds(parentIds.map(parentId => parentId === 'undefined' ? 'spawnzone' : parentId));
+    let newParentIds = [...parentIds].map(parentId => parentId === 'undefined' ? 'spawnzone' : parentId); // new state won't be applied yet
+
+    // Create a new deck with the same tiles as the old deck
+    const newDeck = [...deck];
+
+    // Get the indices of the tiles with parentIds of 'spawnzone'
+    const spawnzoneIndices = parentIds.reduce((indices, parentId, index) => {
+      if (parentId === 'spawnzone') {
+        indices.push(index);
+      }
+      return indices;
+    }, [] as number[]);
+
+    // Shuffle the spawnzoneIndices
+    const shuffledIndices = shuffle(spawnzoneIndices);
+
+    // Replace the tiles at the spawnzoneIndices in the newDeck with the shuffled tiles
+    for (let i = 0; i < spawnzoneIndices.length; i++) {
+      newDeck[spawnzoneIndices[i]] = deck[shuffledIndices[i]];
+    }
+    setDeck(newDeck)
+    let newCount = newParentIds.filter((id) => id === 'spawnzone').length;
+    setCount(newCount); 
+    let newCurrentTile = newParentIds.lastIndexOf('spawnzone');
+    setCurrentTile(newCurrentTile);
+  }//end handleReset
+
   return (
     <main>
       <DndContext
@@ -70,10 +108,11 @@ export default function Home() {
             return newPositions;
           })
           let newParentIds = [...parentIds];
-          if (parentIds[active.id as number] === 'spawnzone' && over?.id !== 'spawnzone') {
-            currentTile === 0 ? null : setCurrentTile(currentTile - 1);
-          }
           newParentIds[active.id as number] = String(over?.id);
+          if (parentIds[active.id as number] === 'spawnzone' && over?.id !== 'spawnzone') {
+            let newCurrentTile = newParentIds.lastIndexOf('spawnzone');
+            setCurrentTile(newCurrentTile);
+          }
 
           const newCount = newParentIds.filter((id) => id === 'spawnzone').length;
           setParentIds(newParentIds);
@@ -94,7 +133,7 @@ export default function Home() {
         })}
         <div className="flex min-h-screen flex-col items-center justify-between p-24">
           <div className="w-full items-center">
-            <div className='w-full flex flex-row gap-4'>
+            <div className='w-fit flex flex-row gap-4'>
               {/* spawnzone */}
               <div className='w-fit flex-col justify-center'>
                 <div className="relative w-fit -mt-px font-inter font-bold text-tile text-base text-center tracking-wider whitespace-nowrap not-italic">
@@ -118,8 +157,9 @@ export default function Home() {
                   <Button label='MEDIUM' selected={difficulty === 2} onClick={() => { setDifficulty(2); handleReset() }} />
                   <Button label='HARD' selected={difficulty === 3} onClick={() => { setDifficulty(3); handleReset() }} />
                 </div>
-                <div>
-                  {win ? <Button label='Play Again?' onClick={handleReset} /> : <Button label='SHUFFLE' onClick={handleReset} />}
+                <div className='w-fit flex flex-row gap-4'>
+                  {win ? <Button label='Play Again?' onClick={handleReset} /> : handleMode() == "13" ? <Button label='RESTART' onClick={handleReset} /> : <Button label='SHUFFLE' onClick={handleReset} />}
+                  {handleMode() == "13" ? <Button label='CLEAR' onClick={handleClear} /> : null}
                   {win ? <div className="relative w-fit -mt-px font-inter font-bold text-tile text-base text-center tracking-wider whitespace-nowrap not-italic">
                     YOU WIN!
                   </div> : null}
